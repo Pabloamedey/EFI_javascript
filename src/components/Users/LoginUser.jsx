@@ -5,6 +5,8 @@ const LoginUser = () => {
 
     const onLoginUser = async (values) => {
 
+        const bodyLoginUser = btoa(`${values.username}:${values.password}`)
+
         const response = await fetch('http://localhost:5000/login', {
             method: 'POST',
             headers:{
