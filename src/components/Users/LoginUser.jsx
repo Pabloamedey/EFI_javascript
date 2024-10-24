@@ -5,14 +5,11 @@ const LoginUser = () => {
 
     const onLoginUser = async (values) => {
 
-        const bodyLoginUser = {
-            username: values.username,
-            password: values.password
-        }
-
         const response = await fetch('http://localhost:5000/login', {
-            method: 'POST', 
-            body: JSON.stringify(bodyLoginUser)
+            method: 'POST',
+            headers:{
+                "Athorization": `Basic ${values.username}:${values.password}`
+            }
         })
 
     }
